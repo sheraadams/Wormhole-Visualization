@@ -1,4 +1,5 @@
-// Credit to Song Ho Ahn Cylinder Class and algorithm and learnopengl.com for Shader and Camera
+// Credit to Song Ho Ahn Cylinder Class and algorithm and learnopengl.com for Shader and Camera 
+// sphere function credit to learnopengl.com
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
