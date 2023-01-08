@@ -1,15 +1,25 @@
-# Wormhole-Visualization
-OpenGL Wormhole Visualization, runs in Microsoft Visual studio.
+# Documentation
 
-Be sure to set VC++ include and libs directory to usual settings.
+This program is a visualization/ simulation program designed to allow an interactive 3D environment. 
+
+![wormhole](https://user-images.githubusercontent.com/110789514/210137732-dbb25017-c739-4fff-92a3-1903f7a38836.png)
+
+## Attribution
+
+Joey Devries and LearnOpenGL as much of this repository is inspired by this site. 
+
+sphere algorithm - LearnOpenGL 
+
+Cylinder algorithm - Songho Ahn
+
+## Instructions 
+Runs in Microsoft Visual studio.
+
+Set VC++ include and libs directory to usual settings.
 
 Set additional libraries to usual settings and dependencies.
 
 Set linker dependencies: assimp.lib, opengl32.lib, glew32.lib, glfw3.lib along with usual dependencies.
-
-![wormhole](https://user-images.githubusercontent.com/110789514/210137732-dbb25017-c739-4fff-92a3-1903f7a38836.png)
-
-Instructions:
 
 1. Clone. Settings are x64 
 
@@ -43,3 +53,7 @@ if this does not resolve add more these defines:
 #define STBI_NO_FAILURE_STRINGS
 see https://github.com/nothings/stb/blob/master/stb_image.h
 
+## References
+Ahn, S. H. (n.d.). OpenGL Cylinder, Prism & Pipe. http://www.songho.ca/opengl/gl_cylinder.html
+
+Learn OpenGL, extensive tutorial resource for learning Modern OpenGL. (n.d.-c). https://learnopengl.com/
