@@ -2,7 +2,7 @@
 
 This program is a visualization/ simulation program designed to allow an interactive 3D environment. 
 
-![wormhole](https://user-images.githubusercontent.com/110789514/210137732-dbb25017-c739-4fff-92a3-1903f7a38836.png)
+![5](https://user-images.githubusercontent.com/110789514/211426193-6ec594f8-c643-4356-a853-41042a6f4715.png)
 
 ## Attribution
 
