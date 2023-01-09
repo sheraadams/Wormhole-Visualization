@@ -60,6 +60,5 @@ Credit to LearnOpenGL for shaders, camera and glfw functions.
 https://github.com/JoeyDeVries/LearnOpenGL/blob/master/LICENSE.md
 
 ## References
-Ahn, S. H. (n.d.). OpenGL Cylinder, Prism & Pipe. http://www.songho.ca/opengl/gl_cylinder.html
 
 Learn OpenGL, extensive tutorial resource for learning Modern OpenGL. (n.d.-c). https://learnopengl.com/
