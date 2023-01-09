@@ -52,6 +52,8 @@ if this does not resolve add more these defines:
 #define STBI_FREE
 #define STBI_NO_FAILURE_STRINGS
 see https://github.com/nothings/stb/blob/master/stb_image.h
+## Credit
+Credit to LearnOpenGL tutorials and learning resources.
 
 ## References
 Ahn, S. H. (n.d.). OpenGL Cylinder, Prism & Pipe. http://www.songho.ca/opengl/gl_cylinder.html
