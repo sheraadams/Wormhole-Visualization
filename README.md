@@ -54,7 +54,8 @@ if this does not resolve add more these defines:
 see https://github.com/nothings/stb/blob/master/stb_image.h
 
 ## License
-Credit to LearnOpenGL:  tutorials and learning resources.
+
+Credit to LearnOpenGL for shaders, camera and glfw functions. 
 
 https://github.com/JoeyDeVries/LearnOpenGL/blob/master/LICENSE.md
 
