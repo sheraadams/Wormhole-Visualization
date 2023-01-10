@@ -2,7 +2,11 @@
 
 This program is a visualization/ simulation program designed to allow an interactive 3D environment. 
 
-![5](https://user-images.githubusercontent.com/110789514/211426193-6ec594f8-c643-4356-a853-41042a6f4715.png)
+![44](https://user-images.githubusercontent.com/110789514/211556500-e5f18c06-389c-4f67-a1b5-4b9c389a6414.png)
+
+## Note
+
+Cylinder.cpp and Cylinder.h are not included but can be found at:  https://songho.ca/opengl/gl_cylinder.html#cylinder
 
 ## Attribution
 
