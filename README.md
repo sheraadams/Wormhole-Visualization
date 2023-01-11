@@ -58,6 +58,10 @@ if this does not resolve add more these defines:
 see https://github.com/nothings/stb/blob/master/stb_image.h
 
 ## License
+Image by wikiImages via Pixabay
+Image by XtravaganT via Adobe Stock.
+
+## License
 
 Credit to LearnOpenGL for shaders, camera and glfw functions. 
 
