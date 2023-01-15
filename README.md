@@ -11,8 +11,6 @@ Cylinder.cpp and Cylinder.h class and algorithms are not included but can be fou
 ## Instructions 
 Runs in Microsoft Visual studio.
 
-Set linker dependencies: assimp.lib, opengl32.lib, glew32.lib, glfw3.lib along with usual dependencies.
-
 1. add libraries: glfw3.lib, opengl32.lib, assimp.lib, glew32.lib
 
 2. add existing items in MS Visual Studio
@@ -24,13 +22,11 @@ Set linker dependencies: assimp.lib, opengl32.lib, glew32.lib, glfw3.lib along w
 5.add #define STB_IMAGE_IMPLEMENTATION above stb_image.h to one cpp file, also stb macro defines (see https://github.com/nothings/stb/blob/master/stb_image.h)
 
 ## License
-Image by wikiImages via Pixabay
-Image by XtravaganT via Adobe Stock.
+JoeyDeVries, J. (n.d.). LearnOpenGL/LICENSE.md at master · JoeyDeVries/LearnOpenGL. GitHub. https://github.com/JoeyDeVries/LearnOpenGL/blob/master/LICENSE.md
 
-## License
+Learn OpenGL, extensive tutorial resource for learning Modern OpenGL. (n.d.-d). https://learnopengl.com/
 
-Credit to LearnOpenGL for shaders, camera and glfw functions. 
+XtravaganT. (n.d.). Space nebula and galaxy. https://as1.ftcdn.net/v2/jpg/05/29/87/36/1000_F_529873693_V74iNOFH3z0LxitPFigGfuaU3lDxVl5P.jpg
 
-https://github.com/JoeyDeVries/LearnOpenGL/blob/master/LICENSE.md
+WikiImages. (n.d.). Orion Nebula. https://pixabay.com/photos/orion-nebula-emission-nebula-11107/
 
-Learn OpenGL, extensive tutorial resource for learning Modern OpenGL. (n.d.-c). https://learnopengl.com/
