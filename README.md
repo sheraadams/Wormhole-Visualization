@@ -26,6 +26,9 @@ Runs in Microsoft Visual studio.
 5.add #define STB_IMAGE_IMPLEMENTATION above stb_image.h to one cpp file, also stb macro defines (see https://github.com/nothings/stb/blob/master/stb_image.h)
 
 ## License
+
+Adams, Aaron (2014) Original Backing Track Bb Minor. https://www.youtube.com/watch?v=CkB-xJJ4tdQ
+
 JoeyDeVries, J. (n.d.). LearnOpenGL/LICENSE.md at master · JoeyDeVries/LearnOpenGL. GitHub. https://github.com/JoeyDeVries/LearnOpenGL/blob/master/LICENSE.md
 
 Learn OpenGL, extensive tutorial resource for learning Modern OpenGL. (n.d.-d). https://learnopengl.com/
