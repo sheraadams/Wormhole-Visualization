@@ -1,6 +1,10 @@
 # Documentation
 
-This program is a visualization/ simulation program designed to allow an interactive 3D environment. 
+This program is a visualization/ simulation program designed to allow an interactive 3D environment. Created in C++ using GLFW and OpenGL. 
+
+Watch the video here:
+
+https://www.youtube.com/watch?v=PsuJ5Sfq4w0
 
 ![44](https://user-images.githubusercontent.com/110789514/211556500-e5f18c06-389c-4f67-a1b5-4b9c389a6414.png)
 
