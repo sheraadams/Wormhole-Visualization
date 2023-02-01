@@ -6,8 +6,6 @@ https://www.youtube.com/watch?v=PsuJ5Sfq4w0
 
 ![44](https://user-images.githubusercontent.com/110789514/211556500-e5f18c06-389c-4f67-a1b5-4b9c389a6414.png)
 
-Cylinder.cpp and Cylinder.h class: https://songho.ca/opengl/gl_cylinder.html#cylinder
-
 ## License
 
 Adams, Aaron (2014) Original Backing Track Bb Minor. https://www.youtube.com/watch?v=CkB-xJJ4tdQ
