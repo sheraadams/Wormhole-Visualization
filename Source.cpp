@@ -1,4 +1,4 @@
-// Credit to Song Ho Ahn Cylinder Class and algorithm and learnopengl.com for Shader and Camera and Sphere
+// Credit to learnopengl.com for Shader and Camera and Sphere
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -11,7 +11,7 @@
 #include <iostream>
 #include"camera.h"
 #include"shader.h"
-#include"Cylinder.h"
+#include"space.h"
 
 #define STBI_ASSERT(x)
 #define STBI_MALLOC
@@ -163,8 +163,8 @@ int main()
 
     unsigned int diffuseMap = loadTexture("resources/textures/space/5.jpg");
     unsigned int specularMap = loadTexture("resources/textures/space/5.jpg");
-    unsigned int cylinderTexture = loadTexture("resources/textures/space/5.jpg");
-    unsigned int sphereTexture = loadTexture("resources/textures/space/8.jpg");
+    unsigned int spaceTexture = loadTexture("resources/textures/space/5.jpg");
+    unsigned int wormholeTexture = loadTexture("resources/textures/space/8.jpg");
   
 
     while (!glfwWindowShouldClose(window))
@@ -275,9 +275,9 @@ int main()
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, specularMap);
         glActiveTexture(GL_TEXTURE2);
-        glBindTexture(GL_TEXTURE_2D, cylinderTexture);
+        glBindTexture(GL_TEXTURE_2D, spaceTexture);
 
-        // define and draw cylinder
+        // define and draw space
         float ambient[] = { 0.5f, 0.5f, 0.5f, 1 };
         float diffuse[] = { 0.8f, 0.8f, 0.8f, 1 };
         float specular[] = { 1.0f, 1.0f, 1.0f, 1 };
@@ -286,15 +286,14 @@ int main()
         glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse);
         glMaterialfv(GL_FRONT, GL_SPECULAR, specular);
         glMaterialf(GL_FRONT, GL_SHININESS, shininess); 
-        Cylinder cylinder1;
-        cylinder1.setBaseRadius(1.5);
-        cylinder1.setTopRadius(1.5);
-        cylinder1.setHeight(100);
-        cylinder1.setSmooth(true);
-        cylinder1.setSectorCount(36); // set to 36 for cylinder 3 for prism
-        cylinder1.draw();
+        Space space;
+        space.setBaseRadius(1.5);
+        space.setTopRadius(1.5);
+        space.setHeight(100);
+        space.setSmooth(true);
+        space.setSectorCount(36); 
+        space.draw();
 
-        // define and draw sphere
         model = glm::mat4(1.0f);
         for (int row = 0; row < nrRows; ++row)
         {
@@ -304,7 +303,7 @@ int main()
                 shader.setMat4("projection", projection);
                 shader.setMat4("view", view);
                 glActiveTexture(GL_TEXTURE0);
-                glBindTexture(GL_TEXTURE_2D, sphereTexture);
+                glBindTexture(GL_TEXTURE_2D, wormholeTexture);
                 model = glm::mat4(1.0f);
                 model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.01f, 0.0f, 0.f));
                 model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.01f, 0.0f, 0.f));
