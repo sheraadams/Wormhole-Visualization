@@ -11,7 +11,7 @@
 #include <iostream>
 #include"camera.h"
 #include"shader.h"
-#include"wormhole.h"
+#include"cylinder.h"
 #include "black_hole.h"
 
 // functions
