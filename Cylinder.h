@@ -1,3 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+// Cylinder.h
+// ==========
+// Cylinder for OpenGL with (base radius, top radius, height, sectors, stacks)
+// The min number of sectors (slices) is 3 and the min number of stacks are 1.
+// - base radius: the radius of the cylinder at z = -height/2
+// - top radius : the radiusof the cylinder at z = height/2
+// - height     : the height of the cylinder along z-axis
+// - sectors    : the number of slices of the base and top caps
+// - stacks     : the number of subdivisions along z-axis
+//
+//  AUTHOR: Song Ho Ahn (song.ahn@gmail.com)
+// CREATED: 2018-03-27
+// UPDATED: 2019-12-02
+///////////////////////////////////////////////////////////////////////////////
 #pragma once
 #include <vector>
 class Cylinder
