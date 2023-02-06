@@ -1,29 +1,4 @@
-// Credit to learnopengl.com for Shader and Camera and Sphere
-/*
-Copyright (c) 2022 Shera Adams
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-Except as contained in this notice, the name(s) of the above copyright holders
-shall not be used in advertising or otherwise to promote the sale, use or
-other dealings in this Software without prior written authorization.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-*/
+// Credit to Song Ho Ahn cylinder Class and algorithm and learnopengl.com for Shader and Camera
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -36,13 +11,8 @@ THE SOFTWARE.
 #include <iostream>
 #include"camera.h"
 #include"shader.h"
-#include"space.h"
-
-#define STBI_ASSERT(x)
-#define STBI_MALLOC
-#define STBI_REALLOC 
-#define STBI_FREE
-#define STBI_NO_FAILURE_STRINGS
+#include"wormhole.h"
+#include "black_hole.h"
 
 // functions
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -50,31 +20,20 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow* window);
 unsigned int loadTexture(const char* path);
-void renderSphere();
 void GetDesktopResolution(float& horizontal, float& vertical);
 
 
-// constants and variables
 float SCR_WIDTH = 800;
 float SCR_HEIGHT = 600;
-bool hdr = true;
-bool hdrKeyPressed = false;
 float exposure = 1.0f;
-int nrRows = 1;
-int nrColumns = 1;
 GLfloat SceneRotateY = 0.0f;
 GLfloat SceneRotateX = 0.0f;
 const float radius = 10.0f;
-unsigned int sphereVAO = 0;
-unsigned int indexCount;
 
-// camera
 Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
-
-// timing
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
@@ -90,7 +49,7 @@ int main()
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
 
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Wormhole", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Sheras Dark Pyramid", NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -101,11 +60,8 @@ int main()
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glfwSetCursorPosCallback(window, mouse_callback);
     glfwSetScrollCallback(window, scroll_callback);
-
-    // capture mouse
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-    // Glad pointers
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
         std::cout << "Failed to initialize GLAD" << std::endl;
@@ -115,7 +71,6 @@ int main()
     glEnable(GL_DEPTH_TEST);
 
     Shader shader("shader.vs", "shader.fs");
-
 
     float vertices[] = {
         // positions          // normals           // texture coords
@@ -179,7 +134,6 @@ int main()
     lightPositions.push_back(glm::vec3(0.0f, -1.8f, 4.0f));
     lightPositions.push_back(glm::vec3(0.8f, -1.7f, 6.0f));
 
-
     std::vector<glm::vec3> lightColors;
     lightColors.push_back(glm::vec3(200.0f, 200.0f, 200.0f));
     lightColors.push_back(glm::vec3(0.1f, 0.0f, 0.0f));
@@ -188,9 +142,8 @@ int main()
 
     unsigned int diffuseMap = loadTexture("resources/textures/space/5.jpg");
     unsigned int specularMap = loadTexture("resources/textures/space/5.jpg");
-    unsigned int spaceTexture = loadTexture("resources/textures/space/5.jpg");
-    unsigned int wormholeTexture = loadTexture("resources/textures/space/8.jpg");
-  
+    unsigned int wormholeTexture = loadTexture("resources/textures/space/5.jpg");
+    unsigned int blackHoleTexture = loadTexture("resources/textures/space/8.jpg");
 
     while (!glfwWindowShouldClose(window))
     {
@@ -256,17 +209,15 @@ int main()
         shader.setFloat("spotLight.cutOff", glm::cos(glm::radians(12.5f)));
         shader.setFloat("spotLight.outerCutOff", glm::cos(glm::radians(15.0f)));
 
-        // world def
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         glm::mat4 view = camera.GetViewMatrix();
         glm::mat4 model = glm::mat4(1.0f);
        
-        // shader init
         shader.setMat4("model", model);
         shader.setMat4("projection", projection);
         shader.setMat4("view", view);
 
-        // lighting uniforms   
+
         for (unsigned int i = 0; i < lightPositions.size(); i++)
         {
             shader.setVec3("lights[" + std::to_string(i) + "].Position", lightPositions[i]);
@@ -274,35 +225,22 @@ int main()
         }
         shader.setVec3("viewPos", camera.Position);
 
-        // assign the vbos and vaos inside while loop
         unsigned int VBO, cubeVAO;
         glGenVertexArrays(1, &cubeVAO);
         glGenBuffers(1, &VBO);
         glBindBuffer(GL_ARRAY_BUFFER, VBO);
         glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
         glBindVertexArray(cubeVAO);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-        glEnableVertexAttribArray(0);
-        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-        glEnableVertexAttribArray(1);
-        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-        glEnableVertexAttribArray(2);
 
-        unsigned int lightCubeVAO;
-        glGenVertexArrays(1, &lightCubeVAO);
-        glBindVertexArray(lightCubeVAO);
-        glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-        glEnableVertexAttribArray(0);
 
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, diffuseMap);
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, specularMap);
         glActiveTexture(GL_TEXTURE2);
-        glBindTexture(GL_TEXTURE_2D, spaceTexture);
+        glBindTexture(GL_TEXTURE_2D, wormholeTexture);
 
-        // define and draw space
+
         float ambient[] = { 0.5f, 0.5f, 0.5f, 1 };
         float diffuse[] = { 0.8f, 0.8f, 0.8f, 1 };
         float specular[] = { 1.0f, 1.0f, 1.0f, 1 };
@@ -310,35 +248,46 @@ int main()
         glMaterialfv(GL_FRONT, GL_AMBIENT, ambient);
         glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse);
         glMaterialfv(GL_FRONT, GL_SPECULAR, specular);
-        glMaterialf(GL_FRONT, GL_SHININESS, shininess); 
-        Space space;
-        space.setBaseRadius(1.5);
-        space.setTopRadius(1.5);
-        space.setHeight(100);
-        space.setSmooth(true);
-        space.setSectorCount(36); 
-        space.draw();
+        glMaterialf(GL_FRONT, GL_SHININESS, shininess);
+
+        Cylinder cylinder1;
+        cylinder1.setBaseRadius(1.5);
+        cylinder1.setTopRadius(1.5);
+        cylinder1.setHeight(100);
+        cylinder1.setSmooth(true);
+        cylinder1.setSectorCount(36); 
+        cylinder1.draw();
 
         model = glm::mat4(1.0f);
-        for (int row = 0; row < nrRows; ++row)
-        {
-            for (int col = 0; col < nrColumns; ++col)
-            {
-                shader.use();
-                shader.setMat4("projection", projection);
-                shader.setMat4("view", view);
-                glActiveTexture(GL_TEXTURE0);
-                glBindTexture(GL_TEXTURE_2D, wormholeTexture);
-                model = glm::mat4(1.0f);
-                model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.01f, 0.0f, 0.f));
-                model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.01f, 0.0f, 0.f));
-                shader.setMat4("model", model);
-                renderSphere();
-            }
-        }
+        shader.use();
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, blackHoleTexture);
+        model = glm::mat4(1.0f);
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.01f, 0.0f, 0.f));
+        model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.01f, 0.0f, 0.f));
+        shader.setMat4("model", model);
+        BlackHole blackHole;
+        blackHole.Draw();
+       
+        glDeleteVertexArrays(1, &cubeVAO);
+        glDeleteBuffers(1, &VBO);
+      
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
+
+    BlackHole blackHole;
+    blackHole.~BlackHole();
+    Cylinder cylinder;
+    cylinder.~Cylinder();
+
+    glDeleteTextures(1, &diffuseMap);
+    glDeleteTextures(1, &specularMap);
+    glDeleteTextures(1, &wormholeTexture);
+    glDeleteTextures(1, &blackHoleTexture);
+
+    glDeleteShader(shader.ID);
+
     glfwTerminate();
     return 0;
 }
@@ -347,7 +296,6 @@ void processInput(GLFWwindow* window)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
-
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
         camera.ProcessKeyboard(FORWARD, deltaTime);
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
@@ -422,96 +370,6 @@ unsigned int loadTexture(char const* path)
     return textureID;
 }
 
-
-void renderSphere()
-{
-    if (sphereVAO == 0)
-    {
-        glGenVertexArrays(1, &sphereVAO);
-        unsigned int vbo, ebo;
-        glGenBuffers(1, &vbo);
-        glGenBuffers(1, &ebo);
-        std::vector<glm::vec3> positions;
-        std::vector<glm::vec2> uv;
-        std::vector<glm::vec3> normals;
-        std::vector<unsigned int> indices;
-        const unsigned int X_SEGMENTS = 64;
-        const unsigned int Y_SEGMENTS = 64;
-        const float PI = 3.14159265359f;
-        for (unsigned int x = 0; x <= X_SEGMENTS; ++x)
-        {
-            for (unsigned int y = 0; y <= Y_SEGMENTS; ++y)
-            {
-                float xSegment = (float)x / (float)X_SEGMENTS;
-                float ySegment = (float)y / (float)Y_SEGMENTS;
-                float xPos = std::cos(xSegment * 2.0f * PI) * std::sin(ySegment * PI) * 1.4 + 0;
-                float yPos = std::cos(ySegment * PI) * 1.4 + 9;
-                float zPos = std::sin(xSegment * 2.0f * PI) * std::sin(ySegment * PI) * 1.4 + 0;
-
-                positions.push_back(glm::vec3(xPos, yPos, zPos));
-                uv.push_back(glm::vec2(xSegment, ySegment));
-                normals.push_back(glm::vec3(xPos, yPos, zPos));
-            }
-        }
-
-        bool oddRow = false;
-        for (unsigned int y = 0; y < Y_SEGMENTS; ++y)
-        {
-            if (!oddRow) // even rows: y == 0, y == 2; and so on
-            {
-                for (unsigned int x = 0; x <= X_SEGMENTS; ++x)
-                {
-                    indices.push_back(y * (X_SEGMENTS + 1) + x);
-                    indices.push_back((y + 1) * (X_SEGMENTS + 1) + x);
-                }
-            }
-            else
-            {
-                for (int x = X_SEGMENTS; x >= 0; --x)
-                {
-                    indices.push_back((y + 1) * (X_SEGMENTS + 1) + x);
-                    indices.push_back(y * (X_SEGMENTS + 1) + x);
-                }
-            }
-            oddRow = !oddRow;
-        }
-        indexCount = static_cast<unsigned int>(indices.size());
-
-        std::vector<float> data;
-        for (unsigned int i = 0; i < positions.size(); ++i)
-        {
-            data.push_back(positions[i].x);
-            data.push_back(positions[i].y);
-            data.push_back(positions[i].z);
-            if (normals.size() > 0)
-            {
-                data.push_back(normals[i].x);
-                data.push_back(normals[i].y);
-                data.push_back(normals[i].z);
-            }
-            if (uv.size() > 0)
-            {
-                data.push_back(uv[i].x);
-                data.push_back(uv[i].y);
-            }
-        }
-        glBindVertexArray(sphereVAO);
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), &data[0], GL_STATIC_DRAW);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
-        unsigned int stride = (3 + 2 + 3) * sizeof(float);
-        glEnableVertexAttribArray(0);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride, (void*)0);
-        glEnableVertexAttribArray(1);
-        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, stride, (void*)(3 * sizeof(float)));
-        glEnableVertexAttribArray(2);
-        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, stride, (void*)(6 * sizeof(float)));
-    }
-
-    glBindVertexArray(sphereVAO);
-    glDrawElements(GL_TRIANGLE_STRIP, indexCount, GL_UNSIGNED_INT, 0);
-}
 void GetDesktopResolution(float& horizontal, float& vertical)
 {
     RECT desktop;
