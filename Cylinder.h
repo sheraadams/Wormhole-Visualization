@@ -1,3 +1,5 @@
+// author: http://www.songho.ca/opengl/gl_cylinder.html
+
 #pragma once
 #include <vector>
 class Cylinder
