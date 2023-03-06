@@ -11,8 +11,9 @@
 #include <iostream>
 #include"camera.h"
 #include"shader.h"
-#include"Cylinder.h"
+#include"cylinder.h"
 #include "black_hole.h"
+
 
 // functions
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
