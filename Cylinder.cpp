@@ -1,4 +1,4 @@
-// credit to Song Ho Ahn
+// author: http://www.songho.ca/opengl/gl_cylinder.html
 
 #include "Cylinder.h"
 #include "shader.h"
