@@ -1,6 +1,6 @@
 ## Documentation
 
-This program is a visualization/ simulation program designed to allow an interactive 3D environment. Created in C++ using GLFW and OpenGL. 
+This program is a visualization/ simulation program designed to allow an interactive 3D environment for educational purposes. The application was created in C++ using GLFW and OpenGL. 
 
 https://www.youtube.com/watch?v=PsuJ5Sfq4w0
 
@@ -20,3 +20,20 @@ XtravaganT. (n.d.). Space nebula and galaxy. https://as1.ftcdn.net/v2/jpg/05/29/
 
 WikiImages. (n.d.). Orion Nebula. https://pixabay.com/photos/orion-nebula-emission-nebula-11107/
 
+## XCode Usage
+
+Open a terminal in the project directory and run the code to remove the old build folder and generate a new one with the Xcode project file.
+rm -rf build 
+mkdir build
+cd build
+cmake -G Xcode ..
+Set the working directory in Xcode using Product > Scheme > Edit Scheme > Run Debug > Options > Working Directory > (Check Set Custom) > Project directory/build.
+
+Build and run the project.
+
+License:
+
+The code is based on various tutorial code from LearnOpenGL.com.
+Tutorial code is © Joey DeVries and licensed under the CC BY 4.0 License.
+Modifications and additional contributions are © Shera Adams and licensed under the Apache 2.0 License.
+Proudly crafted with ❤️ by Shera Adams.
