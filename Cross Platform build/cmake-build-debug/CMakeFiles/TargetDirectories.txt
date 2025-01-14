@@ -1,0 +1,6 @@
+/Users/s.adams/Documents/GitHub/C-Game-Engine/Cross Platform Game Engine 2.0/cmake-build-debug/CMakeFiles/STB_IMAGE.dir
+/Users/s.adams/Documents/GitHub/C-Game-Engine/Cross Platform Game Engine 2.0/cmake-build-debug/CMakeFiles/GLAD.dir
+/Users/s.adams/Documents/GitHub/C-Game-Engine/Cross Platform Game Engine 2.0/cmake-build-debug/CMakeFiles/IMGUI.dir
+/Users/s.adams/Documents/GitHub/C-Game-Engine/Cross Platform Game Engine 2.0/cmake-build-debug/CMakeFiles/sa__app.dir
+/Users/s.adams/Documents/GitHub/C-Game-Engine/Cross Platform Game Engine 2.0/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/s.adams/Documents/GitHub/C-Game-Engine/Cross Platform Game Engine 2.0/cmake-build-debug/CMakeFiles/rebuild_cache.dir

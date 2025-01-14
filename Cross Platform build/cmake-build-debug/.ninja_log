@@ -1,0 +1,23 @@
+# ninja log v5
+0	157	1713570675891919178	CMakeFiles/GLAD.dir/src/glad.c.o	7a1e836dd559b2b8
+0	287	1713570676025227859	CMakeFiles/STB_IMAGE.dir/src/stb_image.cpp.o	957bcfd070d1811e
+1	354	1713570676091433216	CMakeFiles/IMGUI.dir/src/imgui_tables.cpp.o	7870719b5e320431
+288	357	1713570676094023116	CMakeFiles/IMGUI.dir/src/backends/imgui_impl_opengl3.cpp.o	d676c5c96b469045
+0	372	1713570676109159556	CMakeFiles/IMGUI.dir/src/imgui_demo.cpp.o	655c3616c0ba1d85
+0	472	1713570676208791740	CMakeFiles/STB_IMAGE.dir/includes/imgui/backends/imgui_impl_glfw.cpp.o	b62f36e3025b6a44
+1	479	1713570676218219833	CMakeFiles/IMGUI.dir/src/imgui_draw.cpp.o	a6f281aa711a2fa3
+0	480	1713570676215530473	CMakeFiles/GLAD.dir/includes/imgui/backends/imgui_impl_glfw.cpp.o	a705ea822182a60b
+157	494	1713570676230128491	CMakeFiles/IMGUI.dir/src/backends/imgui_impl_glfw.cpp.o	4197d30271be2936
+480	506	1713570676248214000	libGLAD.a	7fd5b44d370582eb
+474	507	1713570676248675000	libSTB_IMAGE.a	a5311e55e59438ec
+1	545	1713570676283230470	CMakeFiles/IMGUI.dir/src/imgui_widgets.cpp.o	5b34f06a9bef7244
+479	619	1713570676359062588	CMakeFiles/sa__app.dir/src/sa/app/stb_image.cpp.o	6dbe1b4986f46642
+0	649	1713570676387796786	CMakeFiles/IMGUI.dir/src/imgui.cpp.o	ef49cb43cf36b885
+354	678	1713570676416673527	CMakeFiles/IMGUI.dir/includes/imgui/backends/imgui_impl_glfw.cpp.o	c22d73d62d449d16
+678	714	1713570676456424000	libIMGUI.a	74e6d13f5a2f4a55
+372	785	1713570676523725117	CMakeFiles/sa__app.dir/src/sa/app/objects.cpp.o	273fd3622d1d2aa3
+494	799	1713570676537984257	CMakeFiles/sa__app.dir/src/sa/app/texture.cpp.o	631c0331756e3fd6
+357	1041	1713570676778547488	CMakeFiles/sa__app.dir/src/sa/app/app.cpp.o	bf4130f5d6fa9aea
+1041	1187	1713570676865093377	/Users/s.adams/Documents/GitHub/C-Game-Engine/Cross Platform Game Engine 2.0/bin/sa/sa__app	8a9f97eeb98bc6eb
+18	611	1713570734223470887	CMakeFiles/sa__app.dir/src/sa/app/app.cpp.o	bf4130f5d6fa9aea
+612	759	1713570734321389913	/Users/s.adams/Documents/GitHub/C-Game-Engine/Cross Platform Game Engine 2.0/bin/sa/sa__app	8a9f97eeb98bc6eb

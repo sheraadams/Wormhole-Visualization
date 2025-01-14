@@ -1,0 +1,26 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -G Ninja -S "/Users/s.adams/Documents/GitHub/C-Game-Engine/Cross Platform Game Engine 2.0" -B "/Users/s.adams/Documents/GitHub/C-Game-Engine/Cross Platform Game Engine 2.0/cmake-build-debug"
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Deprecation Warning at CMakeLists.txt:2 (cmake_policy):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- GLM_INCLUDE_DIR = /opt/homebrew/include
+-- GLM included at /opt/homebrew/include
+-- Found GLFW3 in /opt/homebrew/include
+-- Found ASSIMP: /opt/homebrew/lib/libassimp.dylib
+-- Found ASSIMP in /opt/homebrew/include
+-- Found Freetype in /opt/homebrew/include/freetype2
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/s.adams/Documents/GitHub/C-Game-Engine/Cross Platform Game Engine 2.0/cmake-build-debug

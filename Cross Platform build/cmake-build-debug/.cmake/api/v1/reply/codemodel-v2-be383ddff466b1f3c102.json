@@ -1,0 +1,87 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "SheraAdamsProject330",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "GLAD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-GLAD-Debug-9a7121c3d8283f09237c.json",
+					"name" : "GLAD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "IMGUI::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-IMGUI-Debug-750df660511007aa71b6.json",
+					"name" : "IMGUI",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "STB_IMAGE::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-STB_IMAGE-Debug-2323897157828f62fa8c.json",
+					"name" : "STB_IMAGE",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sa__app::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sa__app-Debug-9b0237445f8b22b829e0.json",
+					"name" : "sa__app",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/s.adams/Documents/GitHub/C-Game-Engine/Cross Platform Game Engine 2.0/cmake-build-debug",
+		"source" : "/Users/s.adams/Documents/GitHub/C-Game-Engine/Cross Platform Game Engine 2.0"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
