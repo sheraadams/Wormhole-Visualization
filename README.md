@@ -23,10 +23,18 @@ WikiImages. (n.d.). Orion Nebula. https://pixabay.com/photos/orion-nebula-emissi
 ## XCode Usage
 
 Open a terminal in the project directory and run the code to remove the old build folder and generate a new one with the Xcode project file.
-rm -rf build 
+
+
+```bash
+# if there is a build folder to 
+rm -rf build
+
+# otherwise, 
 mkdir build
 cd build
 cmake -G Xcode ..
+```
+
 Set the working directory in Xcode using Product > Scheme > Edit Scheme > Run Debug > Options > Working Directory > (Check Set Custom) > Project directory/build.
 
 Build and run the project.
