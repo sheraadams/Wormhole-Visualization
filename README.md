@@ -4,7 +4,7 @@ This program is a visualization/ simulation program designed to allow an interac
 
 https://www.youtube.com/watch?v=PsuJ5Sfq4w0
 
-![copies_AdobeExpress](https://user-images.githubusercontent.com/110789514/226143875-273133d1-174e-41a4-9976-d057415bfc1f.gif)
+![Demo](https://raw.githubusercontent.com/sheraadams/Wormhole-Visualization/main/Untitled.gif)
 
 ![44](https://user-images.githubusercontent.com/110789514/211556500-e5f18c06-389c-4f67-a1b5-4b9c389a6414.png)
 
